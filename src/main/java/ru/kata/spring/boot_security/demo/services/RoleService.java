@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface RoleService {
 
-    public List<Role> roleList();
+     List<Role> roleList();
 
-    public void addRole(Role role);
+     void addRole(Role role);
 
-    public Role getRole(Long id) ;
+     Role getRole(Long id) ;
 }

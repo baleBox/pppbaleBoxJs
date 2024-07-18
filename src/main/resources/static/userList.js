@@ -1,6 +1,5 @@
 const usersTable = document.getElementById("table-users");
 
-
 let temp = ''
 
 function userList() {

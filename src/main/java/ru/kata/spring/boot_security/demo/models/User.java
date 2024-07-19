@@ -36,7 +36,6 @@ public class User implements UserDetails {
     private String lastName;
 
     @Column(name = "age")
-    @Min(value = 0, message = "Проверьте возраст")
     private int age;
 
     @Column(name = "password")
@@ -92,5 +91,14 @@ public class User implements UserDetails {
                         Roles =		%s ]
                 """
                 .formatted(id, firstName, lastName, age, username, password, roles);
+    }
+
+    public String getRolesAsString() {
+        StringBuilder rolesString = new StringBuilder();
+        for (Role r : roles) {
+            rolesString.append(r.getName().substring(5))
+                    .append(" ");
+        }
+        return rolesString.toString();
     }
 }

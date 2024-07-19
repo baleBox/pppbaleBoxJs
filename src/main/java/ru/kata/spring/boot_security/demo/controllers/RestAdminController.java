@@ -17,24 +17,34 @@ public class RestAdminController {
     private final UserService userService;
 
     @GetMapping()
-    public List<User> userList() {
-        return userService.userList();
+    public ResponseEntity<List<User>> printUsers() {
+        List<User> userList = userService.findAll();
+        return ResponseEntity.ok(userList);
     }
+
 
     @GetMapping("/{id}")
-    public User getUser(@PathVariable("id") long id) {
-        return userService.getUser(id);
+    public ResponseEntity<User> getUser(@PathVariable(value = "id") Long id) {
+        User user = userService.getById(id);
+        return ResponseEntity.ok(user);
     }
 
-    @PutMapping()
-    public String updateUser(@RequestBody User user) {
-        userService.updateUser(user);
-        return "User was successfully edited";
+    @PostMapping("/user")
+    public ResponseEntity<HttpStatus> create(@RequestBody User user) {
+        userService.save(user);
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<HttpStatus> delete(@PathVariable("id") Long id) {
-        userService.removeUser(id);
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<HttpStatus> updateUser(@PathVariable("id") Long id, @RequestBody User user) {
+        userService.update(id, user);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<HttpStatus> deleteUser(@PathVariable("id") Long id) {
+        userService.deleteById(id);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 }

@@ -21,12 +21,12 @@ public class Init {
     @PostConstruct
     public void initDb() {
 
-        if (roleService.roleList().isEmpty()) {
-            roleService.addRole(new Role(1L,"ROLE_USER"));
-            roleService.addRole(new Role(2L,"ROLE_ADMIN"));
+        if (roleService.getAllUser().isEmpty()) {
+            roleService.save(new Role(1L,"ROLE_USER"));
+            roleService.save(new Role(2L,"ROLE_ADMIN"));
         }
 
-        if (userService.userList().isEmpty()) {
+        if (userService.findAll().isEmpty()) {
             User admin = new User();
             admin.setId(1L);
             admin.setFirstName("Admin");
@@ -35,7 +35,7 @@ public class Init {
             admin.setUsername("admin@mail.com");
             admin.setPassword("admin");
             admin.setRoles(new HashSet<>(List.of(new Role(2L, "ROLE_ADMIN"))));
-            userService.updateUser(admin);
+            userService.update(2L, admin);
 
             User user = new User();
             user.setId(2L);
@@ -44,8 +44,8 @@ public class Init {
             user.setAge(27);
             user.setUsername("user@mail.com");
             user.setPassword("user");
-            user.setRoles(new HashSet<>(new HashSet<>(List.of(new Role(1L, "ROLE_USER")))));
-            userService.updateUser(user);
+            user.setRoles(new HashSet<>(List.of(new Role(1L, "ROLE_USER"))));
+            userService.update(1L, user);
         }
     }
 }

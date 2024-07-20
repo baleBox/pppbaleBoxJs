@@ -3,7 +3,7 @@ getTableUser();
 
 function getTableUser() {
     tbody.empty();
-    fetch("api/admin/users")
+    fetch(`http://localhost:8080/api/admin/users`)
         .then(res => res.json())
         .then(js => {
             console.log(js);

@@ -21,16 +21,16 @@ public class Role implements GrantedAuthority {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
-    private String name;
-    
-    @Override
-    public String getAuthority() {
-        return getName();
+    @Column(name = "role")
+    private String role;
+
+    public Role(String role) {
+        this.role = role;
     }
 
     @Override
-    public String toString() {
-        return getName();
+    public String getAuthority() {
+        return role;
     }
 }
+

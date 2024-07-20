@@ -1,6 +1,5 @@
 package ru.kata.spring.boot_security.demo.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Collection;
@@ -91,14 +89,5 @@ public class User implements UserDetails {
                         Roles =		%s ]
                 """
                 .formatted(id, firstName, lastName, age, username, password, roles);
-    }
-
-    public String getRolesAsString() {
-        StringBuilder rolesString = new StringBuilder();
-        for (Role r : roles) {
-            rolesString.append(r.getName().substring(5))
-                    .append(" ");
-        }
-        return rolesString.toString();
     }
 }

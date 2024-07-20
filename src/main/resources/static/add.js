@@ -11,14 +11,16 @@ function createNewUser() {
                 role: "ROLE_" + form.roles.options[i].text
             });
         }
-        fetch("api/admin/users", {
+        fetch(`http://localhost:8080/api/admin/users`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                username: form.username.value,
-                email: form.email.value,
+                firstName: form.firstName.value,
+                lastName: form.lastName.value,
+                age: form.age.value,
+                email: form.username.value,
                 password: form.password.value,
                 roles: roles
             })

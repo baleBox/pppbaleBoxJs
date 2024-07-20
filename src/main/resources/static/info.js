@@ -1,5 +1,5 @@
 function getCurrentUser() {
-    fetch("api/admin/users")
+    fetch(`http://localhost:8080/api/user/info`)
         .then(res => res.json())
         .then(user => {
             const roles = user.roles.map(role => role.role).join(',')
@@ -21,7 +21,7 @@ function getCurrentUser() {
 getCurrentUser();
 
 async function getOneUser(id) {
-    let url = "/user/info" + id;
+    let url = "http://localhost:8080/api/user/info" + id;
     let response = await fetch(url);
     return await response.json();
 }
@@ -30,7 +30,9 @@ async function openAndFillInTheModal(form, modal, id) {
     modal.show();
     let user = await getOneUser(id);
     form.id.value = user.id;
+    form.firstName.value = user.firstName;
+    form.lastName.value = user.lastName;
+    form.age.value = user.age;
     form.username.value = user.username;
-    form.email.value = user.email;
     form.roles.value = user.roles.join(',');
 }

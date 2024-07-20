@@ -56,7 +56,8 @@
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">First Name</th>
-                                            <th scope="col">Last Name</th>
+                                            <th scope="col">Last Name
+                                            <th scope="col">Age</th>
                                             <th scope="col">Email</th>
                                             <th scope="col">Role</th>
                                             <th scope="col">Edit</th>
@@ -82,31 +83,31 @@
                                                     <div class="modal-body text-center pt-3">
                                                         <div class="container-fluid align-middle w-50">
                                                             <label for="editID"
-                                                                   class="form-label text-center h6"><b>ID</b></label>
+                                                                   class="form-label text-center h6"><b>id</b></label>
                                                             <input type="text" name="id" class="form-control"
                                                                    id="editID" placeholder="ID"
                                                                    aria-describedby="basic-addon1" disabled>
 
                                                             <label for="editFirstName"
-                                                                   class="form-label text-center pt-3 h6"><b>Username</b></label>
+                                                                   class="form-label text-center pt-3 h6"><b>firstName</b></label>
                                                             <input type="text" name="firstName" class="form-control"
                                                                    id="editFirstName" placeholder="First Name"
                                                                    aria-describedby="basic-addon1" required>
 
                                                             <label for="editLastName"
-                                                                   class="form-label text-center pt-3 h6"><b>Username</b></label>
+                                                                   class="form-label text-center pt-3 h6"><b>lastName</b></label>
                                                             <input type="text" name="lastName" class="form-control"
                                                                    id="editLastName" placeholder="Last Name"
                                                                    aria-describedby="basic-addon1" required>
 
                                                             <label for="editAge"
-                                                                   class="form-label text-center pt-3 h6"><b>Username</b></label>
+                                                                   class="form-label text-center pt-3 h6"><b>age</b></label>
                                                             <input type="text" name="age" class="form-control"
                                                                    id="editAge" placeholder="Age"
                                                                    aria-describedby="basic-addon1" required>
 
                                                             <label for="username"
-                                                                   class="form-label text-center pt-3 h6"><b>Email</b></label>
+                                                                   class="form-label text-center pt-3 h6"><b>username</b></label>
                                                             <input type="email" name="username" class="form-control"
                                                                    id="email" placeholder="Email"
                                                                    aria-describedby="basic-addon1" required>
@@ -153,7 +154,8 @@
                                                 <form id="formDelete">
                                                     <div class="modal-body text-center pt-3">
                                                         <div class="container-fluid align-middle w-50">
-                                                            <label for="delID" class="form-label text-center h6"><b>ID</b></label>
+                                                            <label for="delID"
+                                                                   class="form-label text-center h6"><b>id</b></label>
                                                             <input type="text" name="id" class="form-control"
                                                                    id="delID" placeholder="ID"
                                                                    aria-describedby="basic-addon1" disabled>
@@ -165,34 +167,30 @@
                                                                    aria-describedby="basic-addon1" disabled>
 
                                                             <label for="delLastName"
-                                                                   class="form-label text-center pt-3 h6"><b>Email
-                                                                name</b></label>
+                                                                   class="form-label text-center pt-3 h6"><b>lastName</b></label>
                                                             <input type="text" name="lastName" class="form-control"
                                                                    id="delLastName" placeholder="Last Name"
                                                                    aria-describedby="basic-addon1" disabled>
 
                                                             <label for="delAge"
-                                                                   class="form-label text-center pt-3 h6"><b>Email
-                                                                name</b></label>
+                                                                   class="form-label text-center pt-3 h6"><b>age</b></label>
                                                             <input type="text" name="age" class="form-control"
                                                                    id="delAge" placeholder="Age"
                                                                    aria-describedby="basic-addon1" disabled>
 
                                                             <label for="delusername"
-                                                                   class="form-label text-center pt-3 h6"><b>Email
-                                                                name</b></label>
+                                                                   class="form-label text-center pt-3 h6"><b>username</b></label>
                                                             <input type="text" name="username" class="form-control"
                                                                    id="delusername" placeholder="Email"
                                                                    aria-describedby="basic-addon1" disabled>
-
 
                                                             <label for="Edit_rolesId1"
                                                                    class="form-label text-center pt-3 h6"><b>Role</b></label>
                                                             <select size="2" multiple
                                                                     class="form-control"
                                                                     id="Edit_rolesId1" name="roles" required disabled>
-                                                                <option value="2">ADMIN</option>
-                                                                <option value="1">USER</option>
+                                                                <option value="1">ADMIN</option>
+                                                                <option value="2">USER</option>
                                                             </select>
                                                         </div>
                                                     </div>

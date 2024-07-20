@@ -29,7 +29,7 @@ public class RestAdminController {
         return ResponseEntity.ok(user);
     }
 
-    @PostMapping("/user")
+    @PostMapping()
     public ResponseEntity<HttpStatus> create(@RequestBody User user) {
         userService.save(user);
         return ResponseEntity.ok(HttpStatus.OK);

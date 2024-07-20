@@ -11,7 +11,7 @@ function createNewUser() {
                 role: "ROLE_" + form.roles.options[i].text
             });
         }
-        fetch(`http://localhost:8080/api/admin/users`, {
+        fetch(`http://localhost:8080/api/admin/users/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

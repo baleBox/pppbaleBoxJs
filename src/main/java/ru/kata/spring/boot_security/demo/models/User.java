@@ -37,13 +37,13 @@ public class User implements UserDetails {
     private int age;
 
     @Column(name = "password")
-    @NotEmpty(message = "Введите пароль.")
+    @NotEmpty
     @Size(min = 3, message = "Минимум 3 символа")
     private String password;
 
     @Column(name = "email", unique = true)
-    @NotEmpty(message = "Ведите email.")
-    @Email(message = "Нужно ввести email.")
+    @NotEmpty
+    @Email
     private String username;
 
     @ManyToMany

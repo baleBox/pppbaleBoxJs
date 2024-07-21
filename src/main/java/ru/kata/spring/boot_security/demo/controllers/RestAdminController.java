@@ -17,7 +17,7 @@ public class RestAdminController {
     private final UserService userService;
 
     @GetMapping()
-    public ResponseEntity<List<User>> printUsers() {
+    public ResponseEntity<List<User>> listUsers() {
         List<User> userList = userService.findAll();
         return ResponseEntity.ok(userList);
     }
@@ -37,13 +37,13 @@ public class RestAdminController {
 
 
     @PatchMapping("/{id}")
-    public ResponseEntity<HttpStatus> updateUser(@PathVariable("id") Long id, @RequestBody User user) {
-        userService.update(id, user);
+    public ResponseEntity<HttpStatus> update(@PathVariable ("id")Long id, @RequestBody User user) {
+        userService.update(id,user);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<HttpStatus> deleteUser(@PathVariable("id") Long id) {
+    public ResponseEntity<HttpStatus> delete(@PathVariable("id") Long id) {
         userService.deleteById(id);
         return ResponseEntity.ok(HttpStatus.OK);
     }

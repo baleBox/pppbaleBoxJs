@@ -4,10 +4,10 @@ async function deleteModal(id) {
     const modal = new bootstrap.Modal(document.querySelector('#delete'));
     await openAndFillInTheModal(deleteForm, modal, id);
     switch (deleteForm.roles.value) {
-        case '1':
+        case '2':
             deleteForm.roles.value = 'ADMIN';
             break;
-        case '2':
+        case '1':
             deleteForm.roles.value = 'USER';
             break;
     }
@@ -17,7 +17,7 @@ async function deleteModal(id) {
 function deleteUser() {
     deleteForm.addEventListener("submit", ev => {
         ev.preventDefault();
-        fetch(`http://localhost:8080/api/admin/users` + deleteForm.id.value, {
+        fetch(`http://localhost:8080/api/admin/users/` + deleteForm.id.value, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'

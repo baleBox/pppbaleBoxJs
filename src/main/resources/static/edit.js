@@ -1,4 +1,5 @@
 let formEdit = document.forms["formEdit"];
+let data;
 editUser();
 
 async function editModal(id) {
@@ -7,25 +8,25 @@ async function editModal(id) {
 }
 
 function editUser() {
-    formEdit.addEventListener("submit", ev => {
-        ev.preventDefault();
+    formEdit.addEventListener("submit", async event => {
+        event.preventDefault();
         let roles = [];
         for (let i = 0; i < formEdit.roles.options.length; i++) {
             if (formEdit.roles.options[i].selected) {
                 roles.push(formEdit.roles.options[i].text.replace('ROLE_', ''));
             }
         }
-        fetch(`http://localhost:8080/api/admin/users` + formEdit.id.value, {
+        await fetch(`http://localhost:8080/api/admin/users`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                id: formEdit.id.value,
+                ID: formEdit.id.value,
                 firstName: formEdit.firstName.value,
                 lastName: formEdit.lastName.value,
                 age: formEdit.age.value,
-                email: formEdit.username.value,
+                username: formEdit.username.value,
                 password: formEdit.password.value,
                 roles: roles
             })

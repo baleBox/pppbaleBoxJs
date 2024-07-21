@@ -21,7 +21,7 @@ function getCurrentUser() {
 getCurrentUser();
 
 async function getOneUser(id) {
-    let url = "http://localhost:8080/api/user/info" + id;
+    let url = "http://localhost:8080/api/admin/users/" + id;
     let response = await fetch(url);
     return await response.json();
 }
@@ -33,6 +33,6 @@ async function openAndFillInTheModal(form, modal, id) {
     form.firstName.value = user.firstName;
     form.lastName.value = user.lastName;
     form.age.value = user.age;
-    form.email.value = user.username;
+    form.username.value = user.username;
     form.roles.value = user.roles.join(',');
 }

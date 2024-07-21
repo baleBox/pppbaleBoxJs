@@ -2,8 +2,8 @@ let form = document.forms["create"];
 createNewUser()
 
 function createNewUser() {
-    form.addEventListener("submit", ev => {
-        ev.preventDefault();
+    form.addEventListener("submit", event => {
+        event.preventDefault();
         let roles = [];
         for (let i = 0; i < form.roles.options.length; i++) {
             if (form.roles.options[i].selected) roles.push({
@@ -20,7 +20,7 @@ function createNewUser() {
                 firstName: form.firstName.value,
                 lastName: form.lastName.value,
                 age: form.age.value,
-                email: form.username.value,
+                username: form.username.value,
                 password: form.password.value,
                 roles: roles
             })

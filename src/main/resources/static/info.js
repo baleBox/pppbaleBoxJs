@@ -5,7 +5,7 @@ function getCurrentUser() {
             const roles = user.roles.map(role => role.role).join(',')
             $('#emailInfo').append(`<span>${user.username}</span>`)
             $('#roleInfo').append(`<span>${roles.replace('ROLE_', '') + ' '}</span>`)
-            const u = `$(
+            const tab = `$(
                     <tr>
                         <td>${user.id}</td>
                         <td>${user.firstName}</td>
@@ -14,7 +14,7 @@ function getCurrentUser() {
                         <td>${user.username}</td>
                         <td>${roles.replace('ROLE_', '') + ' '}</td>
                     </tr>)`;
-            $('#oneUser').append(u)
+            $('#oneUser').append(tab)
         })
 }
 

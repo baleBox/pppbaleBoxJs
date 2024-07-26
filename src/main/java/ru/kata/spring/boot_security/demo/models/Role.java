@@ -8,12 +8,13 @@ import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
-@Table(name = "role")
+@Table(name = "roles")
 public class Role implements GrantedAuthority {
 
     @Id
@@ -23,6 +24,10 @@ public class Role implements GrantedAuthority {
 
     @Column(name = "role")
     private String role;
+
+    public Role(String role) {
+        this.role = role;
+    }
 
     @Override
     public String getAuthority() {

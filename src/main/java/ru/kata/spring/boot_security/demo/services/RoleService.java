@@ -10,5 +10,4 @@ public interface RoleService {
 
      void save(Role role);
 
-     Role showUserById(Long id);
 }

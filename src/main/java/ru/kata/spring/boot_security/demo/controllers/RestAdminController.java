@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.models.User;
+import ru.kata.spring.boot_security.demo.services.RoleService;
 import ru.kata.spring.boot_security.demo.services.UserService;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
 public class RestAdminController {
 
     private final UserService userService;
+    private final RoleService roleService;
 
     @GetMapping()
     public ResponseEntity<List<User>> listUsers() {
@@ -35,10 +37,9 @@ public class RestAdminController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-
     @PatchMapping("/{id}")
-    public ResponseEntity<HttpStatus> update(@PathVariable ("id")Long id, @RequestBody User user) {
-        userService.update(id,user);
+    public ResponseEntity<HttpStatus> update(@RequestBody User user, @PathVariable("id") Long id ) {
+        userService.update(id, user);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 

@@ -9,7 +9,6 @@ import ru.kata.spring.boot_security.demo.repositories.RoleRepository;
 import java.util.List;
 
 @Service
-@Transactional
 @RequiredArgsConstructor
 public class RoleServiceImpl implements RoleService {
 
@@ -24,7 +23,6 @@ public class RoleServiceImpl implements RoleService {
     @Transactional
     public void save(Role role) {
         roleRepository.save(role);
-
     }
 }
 
